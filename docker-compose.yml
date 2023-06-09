@@ -12,7 +12,7 @@ services:
   mongos:
     image: mongo
     container_name: mongos
-    restart: always
+    restart: always 
     volumes:
       - ./scripts:/scripts
       - mongodb_cluster_router01_db:/data/db

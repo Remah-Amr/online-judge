@@ -20,7 +20,7 @@ export class ProblemsService {
     private _realtimeService: RealtimeService,
     private _gatewayService: SocketGateway,
     private _apacheKafkaService: ApacheKafkaService,
-  ) {}
+  ) { }
 
   async create(createBody: CreateProblemDto) {
     const problem = await this._problemsRepo.create(createBody);
@@ -64,10 +64,12 @@ export class ProblemsService {
         const folder = 'temp/' + this.random(10); //folder in which the temporary folder will be saved
         const vm_name = 'virtual_machine'; //name of virtual machine that we want to execute
         const timeout_value = 60; //Timeout Value, In Seconds
-
+        // console.log('# DIRNAME : ', __dirname)
+        // console.log('# DIRNAME AFTER UPDATE : ', __dirname.replace('dist', 'src'))
         const sandbox = new DockerSandBox({
           timeout_value,
-          path: '/home/arwa/Documents/my-projects/online-judge/src/problems/',
+          // path: '/home/remah/Desktop/online-judge/src/problems/',
+          path: `${__dirname.replace('dist', 'src')}/`,
           folder,
           vm_name,
           compiler_name: language.compilerName,

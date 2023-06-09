@@ -20,7 +20,7 @@ echo -n 'status: ' # Result=> status: timeout OR status: exited:0
 
 # -z => returns true if length of $code is zero
 # if $code is true "length zero" then timeout
-if [ -z "$code" ]; then
+if [ -z "$code" ]; then 
     echo timeout
 else
     echo exited: $code

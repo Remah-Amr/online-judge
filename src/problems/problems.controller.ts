@@ -18,5 +18,5 @@ export class ProblemsController {
     @Body() body: SolveProblemDto,
   ) {
     return this._problemsService.solve(problemId, body);
-  }
+  } 
 }

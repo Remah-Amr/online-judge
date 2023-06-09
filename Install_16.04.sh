@@ -18,6 +18,7 @@ echo "NodeJS setup Complete"
 
 ###########################
 # Start Docker
+# chmod 777 foldername will give read, write, and execute permissions for everyone.
 ###########################
 chmod 777 ./src/problems/DockerTimeout.sh 
 chmod 777 ./src/problems/Payload/script.sh

@@ -92,7 +92,7 @@ export class DockerSandBox {
       ' && chmod 777 ' +
       path +
       folder;
-
+    console.log('command line 95 from prepare function: ', command)
     const { stderr } = await exec(command);
 
     if (stderr) {
@@ -103,14 +103,14 @@ export class DockerSandBox {
       encoding: 'utf8',
     });
 
-    console.log(langName + ' file was saved!:112');
+    console.log(langName + ' file was saved!');
     await exec("chmod 777 '" + path + folder + '/' + file_name + "'");
 
     fs.writeFileSync(path + folder + '/inputFile', stdin_data, {
       encoding: 'utf8',
     });
 
-    console.log('Input file was saved!:119');
+    console.log('Input file was saved!');
     return;
   }
 
@@ -131,7 +131,7 @@ export class DockerSandBox {
 
       //this statement is what is executed
       const st =
-        path +
+        path + 
         'DockerTimeout.sh ' +
         timeout_value +
         "s -e 'NODE_PATH=/usr/local/lib/node_modules' -i -t -v  \"" +
@@ -149,7 +149,7 @@ export class DockerSandBox {
         extra_arguments;
 
       //log the statement in console
-      console.log('DockerTimeout command:157', st);
+      console.log('DockerTimeout command', st);
 
       //execute the Docker, This is done ASYNCHRONOUSLY
       const { stderr } = await exec(st);
